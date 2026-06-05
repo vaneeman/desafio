@@ -1,0 +1,15 @@
+# Medrano Hernámdez Vanesa Monserrat
+
+name: First Push
+on:
+  push:
+
+jobs:
+  Tarea1:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Say Ayy
+        run:
+          echo "Hi mis first Push"
+          echo "My name is Vanesa Medrano"
