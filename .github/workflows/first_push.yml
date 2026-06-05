@@ -13,4 +13,4 @@ jobs:
         run:
           echo "Hi mis first Push"
           echo "My name is Vanesa Medrano"
-          echo "Message ${{github.event.head.commit.message}}"
+          echo "Message ${{github.event.head_commit.message}}"
