@@ -1,0 +1,28 @@
+# Medrano Hernández Vanesa Monserrat
+
+name: Control de Calidad (ESLint)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  eslint-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar ESLint
+        run: npm run lint

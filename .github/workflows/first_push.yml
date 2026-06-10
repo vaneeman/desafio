@@ -1,15 +1,33 @@
 # Medrano Hernámdez Vanesa Monserrat
-
 name: First Push
 on:
   push:
+  pull_request:
 
 jobs:
   Tarea1:
     runs-on: ubuntu-24.04
-
     steps:
       - name: Say Ayy
-        run:
+        run: |
           echo "Hi mis first Push"
           echo "My name is Vanesa Medrano"
+          echo "Message ${{github.event.head_commit.message}}"
+          echo "Autor ${{github.event.head_commit.author.name}}"
+          echo "ID ${{github.event.head_commit.id}}"
+          echo "URL ${{github.event.head_commit.url}}"
+          echo "Rama ${{github.ref_name}}"
+          echo "Repositorio ${{github.repository}}"
+
+  Tarea2:
+    runs-on: ubuntu-24.04
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Info Pull Request
+        run: |
+          echo "Rama destino ${{github.event.pull_request.base.ref}}"
+          echo "Rama origen ${{github.event.pull_request.head.ref}}"
+          echo "Titulo ${{github.event.pull_request.title}}"
+          echo "Contenido ${{github.event.pull_request.body}}"
+          echo "Estado ${{github.event.pull_request.state}}"
+          echo "Fusionado ${{github.event.pull_request.merged}}"
